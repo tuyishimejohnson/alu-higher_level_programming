@@ -1,2 +1,2 @@
 #!/bin/bash
-python first_script.py
+./python_script.py
