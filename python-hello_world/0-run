@@ -1,2 +1,2 @@
 #!/bin/bash
-./run_script.sh test.py
+python myscript.py
