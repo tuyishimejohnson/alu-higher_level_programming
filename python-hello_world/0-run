@@ -1,2 +1,2 @@
 #!/bin/bash
-python SCRIPTNAME.py
+./run_script.sh test.py
