@@ -6,10 +6,8 @@ def uppercase(str):
 
         if ord(str[i]) >= 97 and ord(str[i]) <= 122:
 
-            print("{}".format(chr(ord(str[i]) - 32)), end="")
+            str = str[:i] + chr(ord(str[i]) - 32) + str[i+1:]
 
-        else:
-
-            print("{}".format(str[i]), end="")                            
+    print("{}\n".format(str), end="")
     
-    print("")
+
