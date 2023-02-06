@@ -1,3 +1,11 @@
 #!/usr/bin/python3
 
-print(*[chr(i) for i in range(97, 123) if chr(i) not in 'qe'], sep='')
+for letter in range(97, 123):
+
+        if letter == 101 and  letter == 113:
+
+                    continue
+
+                    else:
+
+                                print("{}".format(chr(letter)), end="")
