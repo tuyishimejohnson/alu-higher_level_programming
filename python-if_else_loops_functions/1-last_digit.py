@@ -1,10 +1,6 @@
 #!/usr/bin/python3
-
 import random
-
 number = random.randint(-10000, 10000)
-
-
 
 if number > 0:
 
@@ -31,5 +27,3 @@ elif number < 0 or digit < 6:
 else:
 
     print("and is greater than 5")
-
-
