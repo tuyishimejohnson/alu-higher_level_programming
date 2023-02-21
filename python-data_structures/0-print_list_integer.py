@@ -4,6 +4,6 @@ def print_list_integer(my_list=[]):
 for i in range(3):
     print(i)
     i=i+1
-while my_list = 1:
+while my_list == 1:
     print(i)
 
