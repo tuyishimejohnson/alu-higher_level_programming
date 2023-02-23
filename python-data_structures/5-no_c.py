@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-def no_c(mys_string):
-    my_string = ('A', 'Z')
-    for i in my_string:
-        print(s.translate({ord('C'): None}))
-    while my_string = ('a', 'z')
-        print(my_string.translate({ord('c'): None}))
-   
+def no_c(my_string):
+    new_string = ""
+    for char in my_string:
+        if char != 'c' and char != 'C':
+            new_string += char
+    return new_string
+
