@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Defining class"""
+
+
 class Square:
     """initializing the values"""
     def __init__(self, size=0):
@@ -12,4 +14,3 @@ class Square:
     
     def area(self):
         return self.__size ** 2
-
