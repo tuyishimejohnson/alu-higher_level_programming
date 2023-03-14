@@ -25,6 +25,7 @@ class Node:
         if value is not None and not isinstance(value, Node):
             raise TypeError("next_node must be a Node object")
         self._next_node = value
+        """Documenting a class"""
 
 
 class SinglyLinkedList:
