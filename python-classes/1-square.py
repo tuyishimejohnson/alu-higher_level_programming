@@ -1,8 +1,7 @@
 #!/usr/bin/python3
+python3 -c 'print(__import__("my_module").MyClass.__doc__)'
 class Square:
+    python3 -c 'print(__import__("my_module").__doc__)'
     def __init__(self, size):
-        'THe __init__ method initializes the size value
-        self.__size = size
-        Attributes: size'
         self.__size = size
 
