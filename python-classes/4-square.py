@@ -8,8 +8,10 @@ class Square:
 
     def size(self):
         return self.__size
+    """Value of the function"""
                 
     def size(self, value):
+        """running the function"""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
