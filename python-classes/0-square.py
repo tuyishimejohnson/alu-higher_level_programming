@@ -4,5 +4,4 @@
 
 class Square:
     """Detailed description"""
-    pass
-    
+    pass    
