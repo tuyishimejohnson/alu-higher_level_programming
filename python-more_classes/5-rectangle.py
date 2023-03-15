@@ -3,13 +3,10 @@
 
 
 class Rectangle:
-    """Representing the attributes"""
+    """Defining the attributes"""
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
-
-    def __del__(self):
-        print("Bye rectangle...")
 
     @property
     def width(self):
@@ -41,19 +38,19 @@ class Rectangle:
         return self.width * self.height
 
     def perimeter(self):
-        return 2 * (self.width + self.height) if self.width != 0\ and self.height != 0 else 0
+        if self.width == 0 or self.height == 0:
+            return 0
+        else:
+            return 2 * (self.width + self.height)
 
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ""
         else:
-            rectangle = ""
-            for i in range(self.height):
-                for j in range(self.width):
-                    rectangle += "#"
-                if i != self.height - 1:
-                    rectangle += "\n"
-            return rectangle
+            return ("\n".join(["#" * self.width] * self.height))
 
     def __repr__(self):
-        return f"Rectangle({self.width}, {self.height})"
+        return "Rectangle({}, {})".format(self.width, self.height)
+
+    def __del__(self):
+        print("Bye rectangle...")
