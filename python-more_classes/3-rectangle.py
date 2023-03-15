@@ -1,8 +1,14 @@
 #!/usr/bin/python3
-"""Defining a class"""
+"""
+A module with a Rectangle that does nothing
+"""
 
 
 class Rectangle:
+    """
+    An empty Rectangle class
+    """
+
     def __init__(self, width=0, height=0):
         """
         Checks the parameters and initializes some values
