@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 
 '''module: 9-rectangle
 this module contains the class Rectangle ...
