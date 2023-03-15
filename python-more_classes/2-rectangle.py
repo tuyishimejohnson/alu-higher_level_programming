@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""
     Args:
         width (int): The width of the rectangle. Defaults to 0.
         height (int): The height of the rectangle. Defaults to 0.
