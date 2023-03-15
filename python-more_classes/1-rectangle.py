@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defining a class"""
+"""Starting a class"""
 
 
 class Rectangle:
@@ -33,3 +33,4 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         else:
             self._height = value
+
