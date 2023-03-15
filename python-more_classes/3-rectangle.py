@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Starting a class builtin"""
+"""Defining a class"""
 class Rectangle:
     """Initializing attributes of the method"""
     def __init__(self, width=0, height=0):
@@ -41,10 +41,10 @@ class Rectangle:
     def __str__(self):
         if self.width == 0 or self.height == 0:
             return ''
-        rectangle = ''
+        rect_str = ''
         for i in range(self.height):
-            rectangle += '#' * self.width + '\n'
-        return rectangle.rstrip()
-
+            rect_str += '#' * self.width + '\n'
+        return rect_str.rstrip('\n')
+    
     def __repr__(self):
         return f'Rectangle({self.width}, {self.height})'
