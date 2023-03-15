@@ -1,35 +1,129 @@
 #!/usr/bin/python3
-"""Starting a class"""
+"""
+A module with a Rectangle that does nothing
+"""
 
 
 class Rectangle:
-    """Initializing the attributes"""
-    def __init__(self, Rectangle_width=0, Rectangle_height=0):
-        self.width = Rectangle_width
-        self.height = Rectangle_height
+    """
+    An empty Rectangle class
+    """
+
+    def __init__(self, width=0, height=0):
+        """
+        Checks the parameters and initializes some values
+        Args:
+            width (:obj:`int`, optional): The width of the Rectangle.
+            height (:obj:`int`, optional): The height of the Rectangle.
+        """
+
+        self.__check_valid_width(width)
+        self.__check_valid_height(height)
+
+        self.width = width
+        self.height = height
 
     @property
-    def Rectangle_width(self):
-        return self.Rectangle_width
+    def width(self):
+        """
+        Returns the width of the Rectangle
+        """
+
+        return self.__width
 
     @width.setter
-    def Rectangle_width(self, value):
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        elif value < 0:
-            raise ValueError("width must be >= 0")
-        else:
-            self.Rectangle_width = value
+    def width(self, value):
+        """
+        Checks the parameters and set the size of the Rectangle
+        Args:
+            value (int): The width of the Rectangle.
+        Raises:
+            TypeError: If `value` type is not `int`.
+            ValueError: If `value` is less than `0`.
+        """
+
+        self.__check_valid_width(value)
+        self.__width = value
 
     @property
-    def Rectangle_height(self):
-        return self._height
+    def height(self):
+        """
+        Returns the width of the Rectangle
+        """
+
+        return self.__height
 
     @height.setter
-    def Rectangle_height(self, value):
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        elif value < 0:
-            raise ValueError("height must be >= 0")
-        else:
-            self.Rectangle_height = value
+    def height(self, value):
+        """
+        Checks the parameters and set the size of the Rectangle
+        Args:
+            value (int): The height of the Rectangle.
+        Raises:
+            TypeError: If `value` type is not `int`.
+            ValueError: If `value` is less than `0`.
+        """
+
+        self.__check_valid_height(value)
+        self.__height = value
+
+    def __check_valid_width(self, width):
+        """
+        Checks if the width is a valid integer
+        Args:
+            width (int): The width of the Rectangle.
+        Raises:
+            TypeError: If `width` type is not `int`.
+            ValueError: If `width` is less than `0`.
+        """
+
+        if self.__check_int_value(width) is False:
+            raise TypeError('width must be an integer')
+
+        if self.__check_positive_value(width) is False:
+            raise ValueError('width must be >= 0')
+
+    def __check_valid_height(self, height):
+        """
+        Checks if the height is a valid integer
+        Args:
+            height (int): The height of the Rectangle.
+        Raises:
+            TypeError: If `height` type is not `int`.
+            ValueError: If `height` is less than `0`.
+        """
+
+        if self.__check_int_value(height) is False:
+            raise TypeError('height must be an integer')
+
+        if self.__check_positive_value(height) is False:
+            raise ValueError('height must be >= 0')
+
+    def __check_int_value(self, value):
+        """
+        Checks if the value is an integer
+        Args:
+            value (int): The number to verify
+        Returns:
+            int: If is a int `True`, `False` otherwise.
+        """
+
+        if type(value) is int:
+            return True
+
+        return False
+
+    def __check_positive_value(self, value):
+        """
+        Checks if the value is a positive integer
+        Args:
+            value (int): The number to verify
+        Returns:
+            int: `True` If value is greater than
+            or equal to 0, `False` otherwise.
+        """
+
+        if value >= 0:
+            return True
+
+        return False
