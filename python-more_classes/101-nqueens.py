@@ -2,6 +2,7 @@
 import sys
 
 # Define a function to check if a given placement of queens is valid
+
 def is_valid(queens):
     n = len(queens)
     for i in range(n):
@@ -10,6 +11,7 @@ def is_valid(queens):
             if queens[i] == queens[j] or abs(queens[i] - queens[j]) == j - i:
                 return False
     return True
+
 
 # Define a recursive function to find all valid placements of queens
 def find_solutions(queens, n):
