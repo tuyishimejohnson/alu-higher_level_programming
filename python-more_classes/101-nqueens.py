@@ -3,6 +3,7 @@ import sys
 
 # Define a function to check if a given placement of queens is valid
 
+
 def is_valid(queens):
     n = len(queens)
     for i in range(n):
