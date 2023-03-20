@@ -1,2 +1,1 @@
-#!/bin/usr/python3
 type
