@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 def lookup(obj):
-    """
-    Returns a list of available attributes and methods of an object.
-    """
+    """Returns a list of available attributes and methods of an object"""
     result = []
+    """Working on the argument of the function"""
     for attr_name in dir(obj):
         attr_value = getattr(obj, attr_name)
         if callable(attr_value):
