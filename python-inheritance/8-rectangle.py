@@ -1,14 +1,11 @@
 #!/usr/bin/python3
+"""Class representing a rectangle"""
+
+
 class Rectangle(BaseGeometry):
-    """
-    A class representing a rectangle.
-    """
-
+    """Initializing a rectangle with height and width"""
     def __init__(self, width, height):
-        """
-        Initializes a rectangle with a given width and height.
-
-        Args:
+        """Args:
         width (int): The width of the rectangle.
         height (int): The height of the rectangle.
 
