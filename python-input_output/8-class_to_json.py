@@ -1,15 +1,10 @@
 #!/usr/bin/python3
-"""A defined function"""
+'''function that returns the dictionary description with simple data structure
+'''
 
 
 def class_to_json(obj):
-    """Converts an object to a dictionary with simple data types."""
-    if isinstance(obj, bool) or isinstance(obj, int) or isinstance(obj, float) or isinstance(obj, str) or obj is None:
-        return obj
-    elif isinstance(obj, list):
-        return [class_to_json(item) for item in obj]
-    elif isinstance(obj, dict):
-        return {key: class_to_json(value) for key, value in obj.items()}
-    else:
-        return {key: class_to_json(getattr(obj, key)) for key in dir(obj) if not key.startswith('_')}
-
+    '''module class_to_json
+       returns builds a dictionary
+    '''
+    return obj.__dict__
