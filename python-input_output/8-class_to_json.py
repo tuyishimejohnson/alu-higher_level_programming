@@ -1,24 +1,12 @@
-#!/usr/bin/python3
-"""Initialising a function"""
-
-
+!/usr/bin/python3
 def class_to_json(obj):
-    if isinstance(obj, list):
+    """Converts an object to a dictionary with simple data types."""
+    if isinstance(obj, bool) or isinstance(obj, int) or isinstance(obj, float) or isinstance(obj, str) or obj is None:
+        return obj
+    elif isinstance(obj, list):
         return [class_to_json(item) for item in obj]
     elif isinstance(obj, dict):
         return {key: class_to_json(value) for key, value in obj.items()}
-    elif isinstance(obj, str):
-        return obj
-    elif isinstance(obj, int):
-        return obj
-    elif isinstance(obj, bool):
-        return obj
-    elif obj is None:
-        return None
     else:
-        attributes = {}
-        for attribute_name in dir(obj):
-            if not attribute_name.startswith("_"):
-                attribute_value = getattr(obj, attribute_name)
-                attributes[attribute_name] = class_to_json(attribute_value)
-        return attributes
+        return {key: class_to_json(getattr(obj, key)) for key in dir(obj) if not key.startswith('_')}
+
