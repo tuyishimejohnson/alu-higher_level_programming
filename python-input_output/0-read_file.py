@@ -3,7 +3,9 @@
 
 
 def read_file(filename=""):
-    """Using with function to read"""
-    with open(filename, encoding="utf-8") as f:
-        content = f.read()
-        print(content)
+    """Representing the values of the file"""
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            print(f.read())
+    except:
+        pass
