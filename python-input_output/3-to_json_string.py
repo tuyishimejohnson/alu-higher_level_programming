@@ -5,14 +5,13 @@
 import json
 
 def to_json_string(my_obj):
-    """
-    Converts an object to its JSON string representation.
+    """Converts the given object to a JSON string.
 
     Args:
-        my_obj: Any object that can be serialized to JSON.
+        my_obj: The object to be converted.
 
     Returns:
-        A JSON string representation of the object.
+        A JSON string representing the object.
     """
-    OB
     return json.dumps(my_obj)
+
