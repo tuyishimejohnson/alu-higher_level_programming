@@ -1,25 +1,15 @@
 #!/usr/bin/python3
-"""Importing json and sys from os and typing"""
-import json
+"""Add all arguments to a Python list and save them to a file."""
 import sys
-from os import path
-from typing import List
 
-def save_to_json_file(my_obj: any, filename: str):
-    with open(filename, mode='w', encoding='utf-8') as file:
-        json.dump(my_obj, file)
+if __name__ == "__main__":
+    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+    load_from_json_file = \
+        __import__('6-load_from_json_file').load_from_json_file
 
-def load_from_json_file(filename: str):
-    with open(filename, mode='r', encoding='utf-8') as file:
-        return json.load(file)
-
-def add_item(argv: List[str]):
-    my_list = []
-    if path.isfile('add_item.json'):
-        my_list = load_from_json_file('add_item.json')
-    my_list.extend(argv[1:])
-    save_to_json_file(my_list, 'add_item.json')
-    return my_list
-
-if __name__ == '__main__':
-    print(add_item(sys.argv))
+    try:
+        tems = load_from_json_file("add_item.json")
+    except FileNotFoundError:
+        tems = []
+    tems.extend(sys.argv[1:])
+    save_to_json_file(tems, "add_item.json")
