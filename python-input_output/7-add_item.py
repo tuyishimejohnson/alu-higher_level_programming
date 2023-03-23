@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Importing json and sys from os and typing"""
+
+
 import json
 import sys
 from os import path
