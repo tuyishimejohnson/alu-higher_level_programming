@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""A defined function"""
+
+
 def class_to_json(obj):
     """Converts an object to a dictionary with simple data types."""
     if isinstance(obj, bool) or isinstance(obj, int) or isinstance(obj, float) or isinstance(obj, str) or obj is None:
