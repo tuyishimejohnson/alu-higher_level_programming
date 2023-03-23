@@ -1,4 +1,4 @@
-class MyList(list):
-    def print_sorted(self):
-        sorted_list = sorted(self)
-        print(sorted_list)
+"""A module to prints a list in ascending order"""
+"""A class to customize the list class"""
+"""Prints a list in ascending order
+        Sort a list and then prints on the output"""
