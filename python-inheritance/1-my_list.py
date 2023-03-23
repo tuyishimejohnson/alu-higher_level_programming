@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Starting a class"""
+''' Module: 1-my_list'''
 
 
 class MyList(list):
-    """Defining the method of a class attributes"""
+    ''' Represents a MyList'''
+
     def print_sorted(self):
-        sorted_list = sorted(self)
-        print(sorted_list)
+        '''prints the list, but sorted '''
+        print(sorted(self))
