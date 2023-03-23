@@ -1,13 +1,9 @@
 #!/usr/bin/python3
-"""A module to prints a list in ascending order"""
+"""Starting a class"""
 
 
 class MyList(list):
-    """A class to customize the list class"""
-
+    """Defining the method of a class attributes"""
     def print_sorted(self):
-        """Prints a list in ascending order
-        Sort a list and then prints on the output"""
-
-        if issubclass(MyList, list):
-            print(sorted(self))
+        sorted_list = sorted(self)
+        print(sorted_list)
