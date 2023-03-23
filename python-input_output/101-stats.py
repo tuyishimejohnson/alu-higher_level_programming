@@ -3,35 +3,34 @@
 import sys
 import signal
 
-def signal_handler(sig, frame):
+status_codes = [200, 301, 400, 401, 403, 404, 405, 500]
+status_counts = {c: 0 for c in status_codes}
+total_size = 0
+line_count = 0
+
+def print_stats():
+    print(f"File size: {total_size}")
+    for code in sorted(status_codes):
+        count = status_counts[code]
+        if count > 0:
+            print(f"{code}: {count}")
+
+def handle_sigint(signum, frame):
     print_stats()
     sys.exit(0)
 
-signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGINT, handle_sigint)
 
-total_size = 0
-status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-
-def print_stats():
-    print("File size: {}".format(total_size))
-    for status_code in sorted(status_counts.keys()):
-        if status_counts[status_code] > 0:
-            print("{}: {}".format(status_code, status_counts[status_code]))
-
-for i, line in enumerate(sys.stdin):
+for line in sys.stdin:
     try:
-        ip, _, _, _, status_code, size = line.split()
-        status_code = int(status_code)
+        _, _, _, status, size = line.strip().split()
+        status = int(status)
         size = int(size)
-
-        total_size += size
-        status_counts[status_code] += 1
-
-        if i > 0 and i % 10 == 0:
-            print_stats()
-
     except ValueError:
-        pass
-
-print_stats()
-
+        continue
+    if status in status_counts:
+        status_counts[status] += 1
+    total_size += size
+    line_count += 1
+    if line_count % 10 == 0:
+        print_stats()
