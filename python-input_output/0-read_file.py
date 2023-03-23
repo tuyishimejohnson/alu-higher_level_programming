@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+"""Define a fuction that reads files"""
+
+
 def read_file(filename=""):
-    with open(filename, encoding='utf-8') as f:
-        for line in f:
-            print(line, end='')
+    """a fuction to read text """
+    with open(filename, 'r', encoding='UTF8') as b:
+        print(b.read(), end='')
