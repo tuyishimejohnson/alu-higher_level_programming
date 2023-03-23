@@ -3,6 +3,7 @@
 
 
 class BaseGeometry:
+    """Initializing the items in area"""
     def area(self):
         raise NotImplementedError()
 
@@ -15,8 +16,11 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
 
+"""Defining a class Rectangle"""
+
 
 class Rectangle(BaseGeometry):
+    """Initializing the items in Rectangle"""
     def __init__(self, width, height):
         self.__width = width
         self.__height = height
