@@ -12,4 +12,4 @@ class BaseGeometry:
         Raises:
         NotImplementedError: If the method is not implemented in a subclass.
         """
-        raise NotImplementedError("area() is not implemented")
+        raise Exception("area() is not implemented")
