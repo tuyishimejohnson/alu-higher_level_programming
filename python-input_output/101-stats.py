@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Importing sys and signal"""
 
 import sys
 import signal
@@ -7,7 +8,7 @@ status_codes = [200, 301, 400, 401, 403, 404, 405, 500]
 status_counts = {c: 0 for c in status_codes}
 total_size = 0
 line_count = 0
-
+"""Defining the status of the function"""
 def print_stats():
     print(f"File size: {total_size}")
     for code in sorted(status_codes):
