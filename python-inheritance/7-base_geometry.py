@@ -2,9 +2,9 @@
 """A base class for geometry objects"""
 class BaseGeometry:
     """Calculates the area of geometry
-    Raises:NotImplementedError: If the method is not implemented in subclass"""
+    Raises:Exception: If the method is not implemented in subclass"""
     def area(self):
-        raise NotImplementedError("area() is not implemented")
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
