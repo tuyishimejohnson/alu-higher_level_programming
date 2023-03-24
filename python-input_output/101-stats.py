@@ -1,39 +1,46 @@
 #!/usr/bin/python3
-"""Importing sys function"""
+"""Importing sys"""
 
 import sys
 
-"""Initialize variables"""
-file_size = 0
-status_codes = {
-    200: 0,
-    301: 0,
-    400: 0,
-    401: 0,
-    403: 0,
-    404: 0,
-    405: 1,
-    500: 4,
-}
+"""Initialize variables to hold metrics"""
+total_size = 0
+status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 line_count = 0
 
-"""Define a function to print metrics"""
-def print_metrics():
-    print(f"File size: {file_size}")
-    for status_code in sorted(status_codes.keys()):
-        if status_codes[status_code] > 0:
-            print(f"{status_code}: {status_codes[status_code]}")
-    print()
-
-"""Read stdin line by line and compute metrics"""
 try:
+    """Loop through standard input"""
     for line in sys.stdin:
+        # Increment line count
         line_count += 1
-        ip, _, _, status_code, size = line.split()
-        file_size += int(size)
-        status_codes[int(status_code)] += 1
-        if line_count % 10 == 0:
-            print_metrics()
+        
+        # Split input line by spaces
+        parts = line.split()
+
+        # Extract file size and status code
+        size = int(parts[-1])
+        status = int(parts[-2])
+
+        # Add file size to total
+        total_size += size
+
+        # Increment status count
+        if status in status_counts:
+            status_counts[status] += 1
+
+        """If 10 lines have been processed, print statistics"""
+        if line_count == 10:
+            print(f"Total file size: {total_size}")
+            for status, count in sorted(status_counts.items()):
+                if count > 0:
+                    print(f"{status}: {count}")
+            print()
+            line_count = 0
 
 except KeyboardInterrupt:
-    print_metrics()
+    # Print final statistics on keyboard interrupt
+    print(f"Total file size: {total_size}")
+    for status, count in sorted(status_counts.items()):
+        if count > 0:
+            print(f"{status}: {count}")
+
