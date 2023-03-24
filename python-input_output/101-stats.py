@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+"""Importing sys function"""
 
 import sys
 
-# Initialize variables
+"""Initialize variables"""
 file_size = 0
 status_codes = {
     200: 0,
@@ -16,7 +17,7 @@ status_codes = {
 }
 line_count = 0
 
-# Define a function to print metrics
+"""Define a function to print metrics"""
 def print_metrics():
     print(f"File size: {file_size}")
     for status_code in sorted(status_codes.keys()):
@@ -24,7 +25,7 @@ def print_metrics():
             print(f"{status_code}: {status_codes[status_code]}")
     print()
 
-# Read stdin line by line and compute metrics
+"""Read stdin line by line and compute metrics"""
 try:
     for line in sys.stdin:
         line_count += 1
@@ -36,4 +37,3 @@ try:
 
 except KeyboardInterrupt:
     print_metrics()
-
