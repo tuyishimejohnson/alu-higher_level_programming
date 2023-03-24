@@ -1,52 +1,41 @@
 #!/usr/bin/python3
+''' prasing the lofg '''
+
+
 import sys
 
 
-def print_info():
-    print('File size: {:d}'.format(file_size))
+def print_status():
+    '''
+        Printing the status of the request
+    '''
+    counter = 0
+    size = 0
+    file_size = 0
+    status_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
+                    "403": 0, "404": 0, "405": 0, "500": 0}
 
-    for scode, code_times in sorted(status_codes.items()):
-        if code_times > 0:
-            print('{}: {:d}'.format(scode, code_times))
-
-
-status_codes = {
-    '200': 0,
-    '301': 0,
-    '400': 0,
-    '401': 0,
-    '403': 0,
-    '404': 0,
-    '405': 0,
-    '500': 0
-}
-
-lc = 0
-file_size = 0
-
-try:
-    for line in sys.stdin:
-        if lc != 0 and lc % 10 == 0:
-            print_info()
-
-        pieces = line.split()
-
+    for l in sys.stdin:
+        line = l.split()
         try:
-            status = int(pieces[-2])
-
-            if str(status) in status_codes.keys():
-                status_codes[str(status)] += 1
+            size += int(line[-1])
+            code = line[-2]
+            status_codes[code] += 1
         except:
-            pass
+            continue
+        if counter == 9:
+            print("File size: {}".format(size))
+            for key, val in sorted(status_codes.items()):
+                if (val != 0):
+                    print("{}: {}".format(key, val))
+            counter = 0
+        counter += 1
+    if counter < 9:
+        print("File size: {}".format(size))
+        for key, val in sorted(status_codes.items()):
+            if (val != 0):
+                print("{}: {}".format(key, val))
 
-        try:
-            file_size += int(pieces[-1])
-        except:
-            pass
 
-        lc += 1
-
-    print_info()
-except KeyboardInterrupt:
-    print_info()
-    raise
+if __name__ == "__main__":
+    print_status()
