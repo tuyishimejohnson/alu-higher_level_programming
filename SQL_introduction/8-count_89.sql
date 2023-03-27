@@ -1,2 +1,2 @@
 -- Displaying the number of records
-SELECT id = 89 FROM first_table;
+SELECT id FROM first_table WHERE id = 89;
