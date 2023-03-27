@@ -1,2 +1,2 @@
-# Listing all databases
+-- Listing all databases
 SELECT * FROM
