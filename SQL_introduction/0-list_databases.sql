@@ -1,2 +1,2 @@
 -- Listing all databases
-SELECT * FROM
+SHOW DATABASES;
