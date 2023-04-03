@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ Importing the request from the taken URL and with the email as a parameter"""
 
 
