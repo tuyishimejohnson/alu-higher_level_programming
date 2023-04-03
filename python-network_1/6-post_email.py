@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Importing the request from the taken URL and with the email as a parameter"""
+""" Importing the request from the taken URLwith the email as a parameter"""
 
 
 import requests
