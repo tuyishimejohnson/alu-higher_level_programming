@@ -1,20 +1,19 @@
 #!/usr/bin/python3
 """ Github API by importing requests"""
 
-
 import requests
 import sys
 
-if __name__ == "__main__":
-    url = "https://api.github.com/user"
-    username = tuyishimejohnson
-    token = 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
+username = sys.argv[1]
+password = sys.argv[2]
 
-    response = requests.get(url, auth=(username, token))
+response = requests.get("https://api.github.com/user", auth=(username, password))
 
-    if response.status_code == 200:
-        response_json = response.json()
-        print(response_json["id"])
-    else:
-        print("Error: {}".format(response.status_code))
+if response.status_code == 200:
+    data = response.json()
+    print(data['id'])
+else:
+    print(None)
+
+
 
