@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Python script that takes 2 arguments in order to solve the given challenge"""
 
 
