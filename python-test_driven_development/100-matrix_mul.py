@@ -1,5 +1,7 @@
+#!/usr/bin/python3
 def matrix_mul(m_a, m_b):
-    # validate input matrix m_a
+    """validate input matrix m_a"""
+
     if not isinstance(m_a, list):
         raise TypeError("m_a must be a list")
     if not all(isinstance(row, list) for row in m_a):
@@ -12,7 +14,8 @@ def matrix_mul(m_a, m_b):
     if not all(len(row) == num_cols_a for row in m_a):
         raise TypeError("each row of m_a must be of the same size")
 
-    # validate input matrix m_b
+    """validate input matrix m_b"""
+
     if not isinstance(m_b, list):
         raise TypeError("m_b must be a list")
     if not all(isinstance(row, list) for row in m_b):
@@ -25,11 +28,13 @@ def matrix_mul(m_a, m_b):
     if not all(len(row) == num_cols_b for row in m_b):
         raise TypeError("each row of m_b must be of the same size")
 
-    # validate that matrices can be multiplied
+    """ validate that matrices can be multiplied"""
+
     if num_cols_a != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 
-    # multiply matrices
+    """ multiply matrices"""
+
     result = []
     for i in range(len(m_a)):
         row = []
