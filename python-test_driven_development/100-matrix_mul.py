@@ -34,7 +34,7 @@ def matrix_mul(m_a, m_b):
     """ validate that matrices can be multiplied"""
 
     if num_cols_a != len(m_b):
-        raise ValueError("m_a and m_b can't be multiplied")
+        raise ValueError("m_a can't be empty")
 
     """ multiply matrices"""
 
