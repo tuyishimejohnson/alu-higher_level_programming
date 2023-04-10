@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Defining a function matrix_mul"""
+
+
 def matrix_mul(m_a, m_b):
     """validate input matrix m_a"""
 
