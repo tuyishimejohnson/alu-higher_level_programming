@@ -1,30 +1,33 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
-Module for querying a MySQL database using SQLAlchemy
+Script that lists all State objects, and corresponding City objects,
+contained in the database hbtn_0e_101_usa sorted in ascending order
 """
 
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import State
+from relationship_state import Base, State
 from relationship_city import City
 
-
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
-        sys.exit(1)
+    # Connection setup to the database
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    db_name = sys.argv[3]
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".
+                           format(mysql_username, mysql_password, db_name),
+                           pool_pre_ping=True)
 
-    db = create_engine(
-        "mysql+mysqldb://{}:{}@localhost:3306/{}"
-        .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-        pool_pre_ping=True
-    )
-
-    Session = sessionmaker(bind=db)
+    # Create a configured "Session" class
+    Session = sessionmaker(bind=engine)
+    # Create a Session instance
     session = Session()
 
+    # Retrieve all the states sorted by id
     states = session.query(State).order_by(State.id).all()
+
+    # Print each state and their corresponding cities sorted by id
     for state in states:
         print("{}: {}".format(state.id, state.name))
         for city in state.cities:
