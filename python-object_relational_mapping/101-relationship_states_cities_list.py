@@ -11,18 +11,19 @@ from sqlalchemy import create_engine
 
 
 if __name__ == '__main__':
+
+    """Create engine and bind session"""
     user = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
 
-    ''' Create engine and bind session'''
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(user, password, db_name))
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    '''Query states and cities'''
+    """Query states and cities """
     states = session.query(State).order_by(State.id).all()
     for state in states:
         print("{}: {}".format(state.id, state.name))
