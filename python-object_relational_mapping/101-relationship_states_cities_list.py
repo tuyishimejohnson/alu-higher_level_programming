@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Script that lists all State objects, and corresponding City objects,
 contained in the database hbtn_0e_101_usa sorted in ascending order
