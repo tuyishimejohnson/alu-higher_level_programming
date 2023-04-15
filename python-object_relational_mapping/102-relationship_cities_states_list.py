@@ -7,6 +7,8 @@ from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
 
+''' importing and creating a database connection '''
+
 if __name__ == "__main__":
     # Script arguments
     mysql_username = sys.argv[1]
