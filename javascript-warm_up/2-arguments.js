@@ -1,8 +1,14 @@
 #!/usr/bin/node
 
-let myVar = "";
 
-if (myVar == "") {
-console.log("No argument")
+
+if (process.argv.length<=2) {
+console.log("No argument");
 }
-else if (myVar == "null")
+else if (process.argv.length==2) {
+console.log("Argument found");
+}
+
+else {
+console.log("Arguments found");
+}
