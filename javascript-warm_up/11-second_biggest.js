@@ -5,4 +5,3 @@ if (myArray.length <= 3) {
 } else {
   console.log(myArray.sort((a, b) => b - a).slice(3)[0]);
 }
-
