@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 const myArray = process.argv;
 if (myArray.length <= 3) {
   console.log(0);
