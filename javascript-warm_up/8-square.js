@@ -1,4 +1,4 @@
- #!/usr/bin/node
+#!/usr/bin/node
 // script that prints a square
 
 const size = process.argv[2];
