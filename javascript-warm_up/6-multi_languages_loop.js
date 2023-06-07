@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const firstArgv = process.argv[2];
-if (isNaN(firstArgv)) { console.log('Missing number of occurrences'); } else {
-  for (let i = 0; i < firstArgv; i++) { console.log('C is fun'); }
+const myArray = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+for (let i = 0; i < myArray.length; i++) {
+  console.log(myArray[i]);
 }
