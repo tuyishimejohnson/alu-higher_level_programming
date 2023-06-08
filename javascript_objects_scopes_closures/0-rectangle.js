@@ -1,11 +1,3 @@
 #!/usr/bin/node
-class Rectangle {
-	constructor () {
+class Rectangle {}
 
-	}
-	method() {
-		console.log()
-	}
-}
-
-const r1 = new Rectangle();
