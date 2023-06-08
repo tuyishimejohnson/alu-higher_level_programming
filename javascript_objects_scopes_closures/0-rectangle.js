@@ -1,7 +1,7 @@
 #!/usr/bin/node
 class Rectangle {
 	constructor () {
-	this.variable=value;
+
 	}
 	method() {
 		console.log()
