@@ -2,7 +2,7 @@
 const request = require('request');
 
 // Function to fetch characters of a Star Wars movie
-function fetchCharacters(movieId) {
+function fetchCharacters (movieId) {
   const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
   
   request(apiUrl, (error, response, body) => {
@@ -29,4 +29,4 @@ function fetchCharacters(movieId) {
 
 // Fetch characters of the specified movie
 const movieId = process.argv[2];
-fetchCharacters(movieId);
+fetchCharacters (movieId);
