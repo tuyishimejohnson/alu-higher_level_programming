@@ -29,4 +29,4 @@ function fetchCharacters (movieId) {
 
 // Fetch characters of the specified movie
 const movieId = process.argv[2];
-fetchCharacters (movieId);
+fetchCharacters(movieId);
