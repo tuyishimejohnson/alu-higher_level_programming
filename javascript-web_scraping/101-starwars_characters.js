@@ -1,37 +1,41 @@
 #!/usr/bin/node
 const request = require('request');
 
-// Function to fetch characters from the Star Wars API
-function fetchCharacters(movieId) {
-  const url = `https://swapi.dev/api/films/${movieId}/`;
-  
-  request(url, (error, response, body) => {
-    if (response.statusCode === 200) {
-      const filmData = JSON.parse(body);
-      const characters = filmData.characters;
+const movieId = process.argv[2];
+
+const baseUrl = 'https://swapi.dev/api';
+const filmsUrl = `${baseUrl}/films`;
+
+request(filmsUrl, function(error, response, body) {
+  if (!error && response.statusCode === 200) {
+    const films = JSON.parse(body).results;
+    const selectedFilm = films.find(film => film.episode_id === parseInt(movieId));
+    
+    if (selectedFilm) {
+      const charactersUrls = selectedFilm.characters;
+      const charactersCount = charactersUrls.length;
+      let charactersProcessed = 0;
       
-      // Fetch each character details
-      characters.forEach((characterUrl) => {
-        request(characterUrl, (charError, charResponse, charBody) => {
-          if (charResponse.statusCode === 200) {
-            const characterData = JSON.parse(charBody);
-            console.log(characterData.name);
-          } else {
-            console.log('Failed to fetch character data');
+      charactersUrls.forEach(characterUrl => {
+        request(characterUrl, function(error, response, body) {
+          if (!error && response.statusCode === 200) {
+            const character = JSON.parse(body).name;
+            console.log(character);
+          }
+          
+          charactersProcessed++;
+          
+          if (charactersProcessed === charactersCount) {
+            process.exit(0);
           }
         });
       });
     } else {
-      console.log('Failed to fetch film data');
+      console.log('Movie not found.');
+      process.exit(1);
     }
-  });
-}
-
-// Retrieve the movie ID from command-line arguments
-const movieId = process.argv[2];
-
-if (!movieId) {
-  console.log('Please provide a movie ID as an argument');
-} else {
-  fetchCharacters(movieId);
-}
+  } else {
+    console.log('Error retrieving film data.');
+    process.exit(1);
+  }
+});
